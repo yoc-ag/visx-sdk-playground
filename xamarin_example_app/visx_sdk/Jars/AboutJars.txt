@@ -1,0 +1,56 @@
+﻿This directory is for Android .jar and .aar files .
+
+
+###########################################
+                  JAR`s
+###########################################
+
+There are 2 types of jars that are supported:
+
+== Input Jar ==
+
+This is the jar that bindings should be generated for.
+
+For example, if you were binding the Google Maps library, this would
+be Google's "maps.jar".
+
+Set the build action for these jars in the properties page to "InputJar".
+
+
+== Reference Jars ==
+
+These are jars that are referenced by the input jar.  C# bindings will
+not be created for these jars.  These jars will be used to resolve
+types used by the input jar.
+
+NOTE: Do not add "android.jar" as a reference jar.  It will be added automatically
+based on the Target Framework selected.
+
+Set the build action for these jars in the properties page to "ReferenceJar".
+
+###########################################
+                  AAR`s
+###########################################
+
+There are 2 types of aars that are supported:
+
+== Main Aar ==
+
+This is the aar that bindings should be generated for.
+
+For example, if you were binding the Google Maps library, this would
+be Google's "maps.aar".
+
+Set the build action for these jars in the properties page to "LibraryProjectZip".
+
+
+== Reference Aars ==
+
+These are aars that are referenced by the input aar.  C# bindings will
+not be created for these aars.  These aars will be used to resolve
+types used by the input aar.
+
+NOTE: Add "android.aar" as a reference aar.  It wont be added automatically
+based on the Target Framework selected. Download and add manually.
+
+Set the build action for these aars in the properties page to "EmbeddedReferenceJar".

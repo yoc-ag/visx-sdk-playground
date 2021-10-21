@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamarin_ShowcaseApp.MainPage">
+
+    <StackLayout BackgroundColor="{StaticResource colorPrimaryDark}">
+        <Frame BackgroundColor="{StaticResource colorPrimaryDark}" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to YOC Xamarin Showcase" HorizontalTextAlignment="Center" TextColor="{StaticResource whiteSmoke}" FontSize="36"/>
+        </Frame>
+        <Button Text="YOC Classic Banner AD" Clicked="Banner_Clicked" Margin="16, 10, 16, 0" BackgroundColor="{StaticResource colorPrimaryLight}" TextColor="{StaticResource whiteSmoke}"/>
+        <Button Text="YOC Interstitial AD" Clicked="Interstitial_Clicked" Margin="16, 8, 16, 0" BackgroundColor="{StaticResource colorPrimaryLight}" TextColor="{StaticResource whiteSmoke}"/>
+        <Button Text="YOC Universal AD" Clicked="Universal_Clicked" Margin="16, 8, 16, 0" BackgroundColor="{StaticResource colorPrimaryLight}" TextColor="{StaticResource whiteSmoke}"/>
+
+    </StackLayout>
+
+</ContentPage>

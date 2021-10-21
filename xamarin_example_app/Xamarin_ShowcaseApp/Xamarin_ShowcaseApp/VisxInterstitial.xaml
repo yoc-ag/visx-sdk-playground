@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamarin_ShowcaseApp.VisxInterstitial"
+             Title="Visx Interstitial Showcase">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout >
+                <Image Source="teaser_img_article.png"/>
+                <Label Text="{StaticResource HeadlineText}" Margin="16, 6, 16, 0" FontSize="Large" TextColor="Black" />
+                <Label Text="{StaticResource DummyText}" Margin="16, 6, 16, 0"/>
+                <Label Text="{StaticResource DummyText}" Margin="16, 0, 16, 16" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
