@@ -1,0 +1,2 @@
+export const LoremIpsum = 'Etiam vitae varius quam, sit amet tincidunt mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam ut auctor erat, auctor molestie odio. Proin accumsan viverra eros. Donec at porta mi, a pellentesque elit. Sed euismod dignissim lacus quis euismod. Sed pellentesque bibendum pulvinar.';
+export const OtherString = 'Other String';

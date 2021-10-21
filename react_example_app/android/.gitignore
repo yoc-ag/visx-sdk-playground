@@ -1,0 +1,36 @@
+*.iml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Android studio
+.idea/
+.gradle
+gradle
+/*/local.properties
+/*/out
+/*/*/build
+build
+/*/*/production
+*.iml
+*.iws
+*.ipr
+*~
+*.swp
+
+# manifest merger
+manifest-merger-*.txt
+fabric.properties
+*.apk
+app/prod/release/
+app/gradlew
+app/gradlew.bat
+

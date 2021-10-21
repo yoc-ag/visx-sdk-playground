@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DemoApp_ReactNative</string>
+    <string name="android_view">Loading advertisement…</string>
+    <string name="ad_ready">Ad ready to be displayed</string>
+</resources>
