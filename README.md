@@ -9,6 +9,7 @@ This repository is designed to help publishers integrate the native VIS.X® SDK 
 - Flutter (iOS, Android)
 - Xamarin Forms (iOS, Android)
 - SwiftUI (native iOS)
+- Jetpack Compose (Android)
 
 For additional information and the full integration guide please check: [https://support.yoc.com/](https://support.yoc.com/)
 
