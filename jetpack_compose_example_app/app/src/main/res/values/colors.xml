@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Colors -->
+    <color name="colorPrimary">#255B80</color>
+    <color name="colorPrimaryDark">#1E2C4A</color>
+    <color name="colorPrimaryLight">#658EE4</color>
+    <color name="colorAccent">#FFC107</color>
+    <color name="whiteSmoke">#f5f5f5</color>
+    <color name="black">#000000</color>
+
+    <color name="colorLightGray">#d3cdcd</color>
+    <color name="colorYocBlue">#1c213e</color>
+    <color name="ripple_effect_color">#C4C4C4</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- YOC Primary Colors -->
+    <color name="yocBlue">#1C213E</color>
+    <color name="turquoise">#2494A2</color>
+    <color name="gold">#DBB13B</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- YOC Secondary Colors -->
+    <color name="yocGray80">#494D65</color>
+    <color name="yocGray60">#777A8B</color>
+    <color name="yocGray40">#A4A6B2</color>
+    <color name="yocGray20">#D2D3D8</color>
+</resources>
