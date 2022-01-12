@@ -6,6 +6,9 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import com.yoc.demo_showcase_flutter.Constants.ACTION_TRACKER
+import com.yoc.demo_showcase_flutter.Constants.AD_ACTION_TRACKER
+import com.yoc.demo_showcase_flutter.Constants.DOMAIN
 import com.yoc.visx.sdk.VisxAdManager
 import com.yoc.visx.sdk.mraid.EnhancedMraidProperties
 import com.yoc.visx.sdk.util.AdSize
@@ -24,14 +27,13 @@ import io.flutter.plugin.platform.PlatformView
  * @param maxSizeHeight - height of the maximum available screen height for displaying ad,
  *                        received from Flutter platform
  */
-class FlutterVisxUniversalView(context: Context, private val mainActivity: MainActivity, private val maxSizeHeight: Int) : PlatformView, RelativeLayout(context) {
+class FlutterVisxUniversalView(
+    context: Context, private val mainActivity: MainActivity, private val maxSizeHeight: Int,
+    private val adUnitId: String
+) : PlatformView, RelativeLayout(context) {
 
     companion object {
         const val TAG = "VisxModule.Universal"
-        const val UNIVERSAL_AD_ID = "912268"
-        const val DOMAIN = "yoc.com"
-        const val ACTION_TRACKER = "ActionTracker"
-        const val AD_ACTION_TRACKER = "AdActionTracker"
     }
 
     private lateinit var visxAdManagerUniversal: VisxAdManager
@@ -71,59 +73,65 @@ class FlutterVisxUniversalView(context: Context, private val mainActivity: MainA
      */
     private fun initVisxAdView() {
         visxAdManagerUniversal = VisxAdManager.Builder()
-                .visxAdUnitID(UNIVERSAL_AD_ID)
-                .adSize(AdSize.MEDIUM_RECTANGLE_300x250)
-                .appDomain(DOMAIN)
-                .context(context)
-                .callback(object : ActionTracker {
-                    override fun onAdRequestStarted(visxAdManager: VisxAdManager?) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdRequestStarted")
-                    }
+            .visxAdUnitID(adUnitId)
+            .adSize(AdSize.MEDIUM_RECTANGLE_300x250)
+            .appDomain(DOMAIN)
+            .context(context)
+            .callback(object : ActionTracker {
+                override fun onAdRequestStarted(visxAdManager: VisxAdManager?) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdRequestStarted")
+                }
 
-                    override fun onAdResponseReceived(visxAdManager: VisxAdManager?, s: String?) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdResponseReceived: $s")
-                        displayAd()
-                    }
+                override fun onAdResponseReceived(visxAdManager: VisxAdManager?, s: String?) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdResponseReceived: $s")
+                    displayAd()
+                }
 
-                    override fun onAdLoadingStarted(visxAdManager: VisxAdManager?) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdLoadingStarted")
-                    }
+                override fun onAdLoadingStarted(visxAdManager: VisxAdManager?) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdLoadingStarted")
+                }
 
-                    override fun onAdLoadingFinished(visxAdManager: VisxAdManager?, s: String?) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdLoadingFinished: $s")
-                        displayAd()
-                        registerListener()
-                    }
+                override fun onAdLoadingFinished(visxAdManager: VisxAdManager?, s: String?) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdLoadingFinished: $s")
+                    displayAd()
+                    registerListener()
+                }
 
-                    override fun onAdLoadingFailed(visxAdManager: VisxAdManager?, s: String?, p2: Boolean) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdLoadingFailed reason: $s")
+                override fun onAdLoadingFailed(
+                    visxAdManager: VisxAdManager?,
+                    s: String?,
+                    p2: Boolean
+                ) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdLoadingFailed reason: $s")
 
-                        /**
-                         * Collapse Flutter adContainer if ad fails to load
-                         */
-                        mainActivity.updateAdContainer(0, 0)
-                    }
+                    /**
+                     * Collapse Flutter adContainer if ad fails to load
+                     */
+                    mainActivity.updateAdContainer(0, 0)
+                }
 
-                    override fun onAdSizeChanged(width: Int, height: Int) {
-                        Log.d(TAG, ACTION_TRACKER + " onAdSizeChanged width: " + width
-                                + " height: " + height)
+                override fun onAdSizeChanged(width: Int, height: Int) {
+                    Log.d(
+                        TAG, ACTION_TRACKER + " onAdSizeChanged width: " + width
+                                + " height: " + height
+                    )
 
-                        /**
-                         * Expand Flutter adContainer with adSize values
-                         */
-                        mainActivity.updateAdContainer(width, height)
-                    }
+                    /**
+                     * Expand Flutter adContainer with adSize values
+                     */
+                    mainActivity.updateAdContainer(width, height)
+                }
 
-                    override fun onAdClicked() {
-                        Log.d(TAG, "$ACTION_TRACKER onAdClicked")
-                    }
+                override fun onAdClicked() {
+                    Log.d(TAG, "$ACTION_TRACKER onAdClicked")
+                }
 
-                    override fun onAdLeftApplication() {
-                        Log.d(TAG, "$ACTION_TRACKER onAdLeftApplication")
-                    }
+                override fun onAdLeftApplication() {
+                    Log.d(TAG, "$ACTION_TRACKER onAdLeftApplication")
+                }
 
-                })
-                .build()
+            })
+            .build()
 
         /**
          * Set maximum available size in height for ad to resize automatically
@@ -147,7 +155,13 @@ class FlutterVisxUniversalView(context: Context, private val mainActivity: MainA
                 Log.d(TAG, "$AD_ACTION_TRACKER onLandingPageClosed")
             }
 
-            override fun onAdResized(p0: Int, p1: Int, p2: Int, p3: Int, p4: EnhancedMraidProperties.CloseButtonPosition?) {
+            override fun onAdResized(
+                p0: Int,
+                p1: Int,
+                p2: Int,
+                p3: Int,
+                p4: EnhancedMraidProperties.CloseButtonPosition?
+            ) {
                 Log.d(TAG, "$AD_ACTION_TRACKER onAdResized")
             }
 
@@ -173,7 +187,9 @@ class FlutterVisxUniversalView(context: Context, private val mainActivity: MainA
              * Check if the view has parent
              */
             if (visxAdManagerUniversal.adContainer.parent != null) {
-                (visxAdManagerUniversal.adContainer.parent as ViewGroup).removeView(visxAdManagerUniversal.adContainer)
+                (visxAdManagerUniversal.adContainer.parent as ViewGroup).removeView(
+                    visxAdManagerUniversal.adContainer
+                )
             }
             inlineContainer.addView(visxAdManagerUniversal.adContainer)
             inlineContainer.invalidate()

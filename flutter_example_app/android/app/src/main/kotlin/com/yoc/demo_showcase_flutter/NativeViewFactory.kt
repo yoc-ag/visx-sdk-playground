@@ -2,6 +2,7 @@ package com.yoc.demo_showcase_flutter
 
 import android.content.Context
 import com.yoc.demo_showcase_flutter.Constants.AD_TYPE_KEY
+import com.yoc.demo_showcase_flutter.Constants.AD_UNIT_ID
 import com.yoc.demo_showcase_flutter.Constants.BANNER
 import com.yoc.demo_showcase_flutter.Constants.UNIVERSAL
 import io.flutter.plugin.common.StandardMessageCodec
@@ -14,7 +15,8 @@ import io.flutter.plugin.platform.PlatformViewFactory
  * @implements PlatformViewFactory
  * @param      mainActivity
  */
-class NativeViewFactory(private var mainActivity: MainActivity) : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
+class NativeViewFactory(private var mainActivity: MainActivity) :
+    PlatformViewFactory(StandardMessageCodec.INSTANCE) {
 
     override fun create(context: Context, viewId: Int, args: Any?): PlatformView {
 
@@ -34,12 +36,17 @@ class NativeViewFactory(private var mainActivity: MainActivity) : PlatformViewFa
         val adType = getAdType(creationParams)
 
         /**
+         * Ad UNIT ID for calling proper ad
+         */
+        val adUnitId = getAdUnitId(creationParams)
+
+        /**
          * Return VisxAd View based on adType
          */
         return if ((adType == UNIVERSAL)) {
-            FlutterVisxUniversalView(context, mainActivity, maxSizeHeight)
+            FlutterVisxUniversalView(context, mainActivity, maxSizeHeight, adUnitId)
         } else {
-            FlutterVisxBannerView(context, mainActivity)
+            FlutterVisxBannerView(context, adUnitId)
         }
     }
 
@@ -64,6 +71,19 @@ class NativeViewFactory(private var mainActivity: MainActivity) : PlatformViewFa
             creationParams[AD_TYPE_KEY] as String
         } else {
             BANNER
+        }
+    }
+
+    /**
+     * Returns the adUnit ID specified in Flutter platform
+     *
+     * String
+     */
+    private fun getAdUnitId(creationParams: Map<String?, Any?>?): String {
+        return if (creationParams?.get(AD_UNIT_ID) is String) {
+            creationParams[AD_UNIT_ID] as String
+        } else {
+            ""
         }
     }
 }

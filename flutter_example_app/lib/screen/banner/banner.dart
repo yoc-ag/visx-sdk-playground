@@ -4,7 +4,6 @@ import 'package:demo_showcase_flutter/common/colors.dart';
 import 'package:demo_showcase_flutter/common/constants.dart';
 import 'package:demo_showcase_flutter/common/dimen.dart';
 import 'package:demo_showcase_flutter/common/strings.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,9 @@ class BannerState extends State<Banner> {
 
   Widget _getPlatformAd() {
     creationParams[Constants.AD_TYPE] = Constants.BANNER;
+
     if (Platform.isAndroid) {
+      creationParams[Constants.AD_UNIT_ID] = Constants.AD_UNIT_BANNER_ID;
       print(Platform.operatingSystem);
       // Android-specific code
       return PlatformViewLink(
@@ -50,8 +51,7 @@ class BannerState extends State<Banner> {
       // iOS-specific code
       print(Platform.operatingSystem);
 
-      return
-        UiKitView(
+      return UiKitView(
         viewType: Constants.IOS_BRIDGE,
         layoutDirection: TextDirection.ltr,
         creationParams: creationParams,
@@ -121,8 +121,7 @@ class BannerState extends State<Banner> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                          width: 320, height: 250,
-                          child: _getPlatformAd()),
+                          width: 320, height: 250, child: _getPlatformAd()),
                     ],
                   ),
                   Padding(

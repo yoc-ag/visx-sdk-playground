@@ -2,7 +2,6 @@ import 'package:demo_showcase_flutter/common/colors.dart';
 import 'package:demo_showcase_flutter/common/dimen.dart';
 import 'package:demo_showcase_flutter/common/routes.dart';
 import 'package:demo_showcase_flutter/common/strings.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
