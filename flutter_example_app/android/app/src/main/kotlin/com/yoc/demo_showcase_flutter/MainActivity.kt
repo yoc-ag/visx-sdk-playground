@@ -12,8 +12,8 @@ import kotlin.properties.Delegates
 
 
 /**
- * This is main and only input output point for communicating between Flutter and Android Native
- * platforms.visx-sdk
+ * This is main and only input output point for cmmunicating between Flutter and Android Native
+ * platforms.
  *
  * Need to implement EventChannel.StreamHandler interface for opening EventChannel for data Streams
  */

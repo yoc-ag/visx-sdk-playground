@@ -1,11 +1,12 @@
 package com.yoc.demo_showcase_flutter
 
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.RelativeLayout
+import com.yoc.demo_showcase_flutter.Constants.ACTION_TRACKER
+import com.yoc.demo_showcase_flutter.Constants.AD_ACTION_TRACKER
+import com.yoc.demo_showcase_flutter.Constants.DOMAIN
 import com.yoc.visx.sdk.VisxAdManager
 import com.yoc.visx.sdk.mraid.EnhancedMraidProperties
 import com.yoc.visx.sdk.util.AdSize
@@ -13,15 +14,13 @@ import com.yoc.visx.sdk.view.category.ActionTracker
 import com.yoc.visx.sdk.view.category.AdActionTracker
 import io.flutter.plugin.platform.PlatformView
 
-internal class FlutterVisxBannerView(private val context: Context, private var mainActivity: MainActivity
+internal class FlutterVisxBannerView(
+    private val context: Context,
+    private val adUnitId: String
 ) : PlatformView {
 
     companion object {
         const val TAG = "VisxModule.Banner"
-        const val BANNER_AD_ID = "912261"
-        const val DOMAIN = "yoc.com"
-        const val ACTION_TRACKER = "ActionTracker"
-        const val AD_ACTION_TRACKER = "AdActionTracker"
     }
 
 
@@ -44,48 +43,54 @@ internal class FlutterVisxBannerView(private val context: Context, private var m
 
     private fun initVisxAdView() {
         visxAdManagerBanner = VisxAdManager.Builder()
-                .visxAdUnitID(BANNER_AD_ID)
-                .adSize(AdSize.MEDIUM_RECTANGLE_300x250)
-                .appDomain(DOMAIN)
-                .context(context)
-                .isFixedSize(true)
-                .callback(object : ActionTracker {
-                    override fun onAdRequestStarted(visxAdManager: VisxAdManager?) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdRequestStarted")
-                    }
+            .visxAdUnitID(adUnitId)
+            .adSize(AdSize.MEDIUM_RECTANGLE_300x250)
+            .appDomain(DOMAIN)
+            .context(context)
+            .isFixedSize(true)
+            .callback(object : ActionTracker {
+                override fun onAdRequestStarted(visxAdManager: VisxAdManager?) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdRequestStarted")
+                }
 
-                    override fun onAdResponseReceived(visxAdManager: VisxAdManager?, s: String?) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdResponseReceived: $s")
-                    }
+                override fun onAdResponseReceived(visxAdManager: VisxAdManager?, s: String?) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdResponseReceived: $s")
+                }
 
-                    override fun onAdLoadingStarted(visxAdManager: VisxAdManager?) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdLoadingStarted")
-                    }
+                override fun onAdLoadingStarted(visxAdManager: VisxAdManager?) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdLoadingStarted")
+                }
 
-                    override fun onAdLoadingFinished(visxAdManager: VisxAdManager?, s: String?) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdLoadingFinished: $s")
-                        displayAd()
-                    }
+                override fun onAdLoadingFinished(visxAdManager: VisxAdManager?, s: String?) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdLoadingFinished: $s")
+                    displayAd()
+                }
 
-                    override fun onAdLoadingFailed(visxAdManager: VisxAdManager?, s: String?, p2: Boolean) {
-                        Log.d(TAG, "$ACTION_TRACKER onAdLoadingFailed reason: $s")
-                    }
+                override fun onAdLoadingFailed(
+                    visxAdManager: VisxAdManager?,
+                    s: String?,
+                    p2: Boolean
+                ) {
+                    Log.d(TAG, "$ACTION_TRACKER onAdLoadingFailed reason: $s")
+                }
 
-                    override fun onAdSizeChanged(width: Int, height: Int) {
-                        Log.d(TAG, ACTION_TRACKER + " onAdSizeChanged width: " + width
-                                + " height: " + height)
-                    }
+                override fun onAdSizeChanged(width: Int, height: Int) {
+                    Log.d(
+                        TAG, ACTION_TRACKER + " onAdSizeChanged width: " + width
+                                + " height: " + height
+                    )
+                }
 
-                    override fun onAdClicked() {
-                        Log.d(TAG, "$ACTION_TRACKER onAdClicked")
-                    }
+                override fun onAdClicked() {
+                    Log.d(TAG, "$ACTION_TRACKER onAdClicked")
+                }
 
-                    override fun onAdLeftApplication() {
-                        Log.d(TAG, "$ACTION_TRACKER onAdLeftApplication")
-                    }
+                override fun onAdLeftApplication() {
+                    Log.d(TAG, "$ACTION_TRACKER onAdLeftApplication")
+                }
 
-                })
-                .build()
+            })
+            .build()
 
         visxAdManagerBanner.setAdActionTracker(object : AdActionTracker {
             override fun onInterstitialWillBeClosed() {
@@ -104,7 +109,13 @@ internal class FlutterVisxBannerView(private val context: Context, private var m
                 Log.d(TAG, "$AD_ACTION_TRACKER onLandingPageClosed")
             }
 
-            override fun onAdResized(p0: Int, p1: Int, p2: Int, p3: Int, p4: EnhancedMraidProperties.CloseButtonPosition?) {
+            override fun onAdResized(
+                p0: Int,
+                p1: Int,
+                p2: Int,
+                p3: Int,
+                p4: EnhancedMraidProperties.CloseButtonPosition?
+            ) {
                 Log.d(TAG, "$AD_ACTION_TRACKER onAdResized")
             }
 

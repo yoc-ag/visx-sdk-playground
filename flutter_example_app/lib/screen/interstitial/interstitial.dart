@@ -4,7 +4,6 @@ import 'package:demo_showcase_flutter/common/assets.dart';
 import 'package:demo_showcase_flutter/common/colors.dart';
 import 'package:demo_showcase_flutter/common/dimen.dart';
 import 'package:demo_showcase_flutter/common/strings.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -21,13 +20,13 @@ class _InterstitialState extends State<Interstitial> {
   Future<void> _getInterstitial() async {
     if (Platform.isAndroid) {
       try {
-        final int result = await platform.invokeMethod(displayInterstitialActionAndroid);
+        await platform.invokeMethod(displayInterstitialActionAndroid);
       } on PlatformException catch (e) {
         _showToast("Interstitial Android failed to load: ${e.message}");
       }
     } else if (Platform.isIOS) {
       try {
-        final int result = await platform.invokeMethod(displayInterstitialActionIos);
+        await platform.invokeMethod(displayInterstitialActionIos);
       } on PlatformException catch (e) {
         _showToast("Interstitial iOS failed to load: ${e.message}");
       }

@@ -82,7 +82,7 @@ class _UniversalState extends State<Universal> {
 
     /// Platform check
     if (Platform.isAndroid) {
-
+      creationParams[Constants.AD_UNIT_ID] = Constants.AD_UNIT_UNIVERSAL_ID;
       /// Android-specific code
       return PlatformViewLink(
         viewType: Constants.ANDROID_BRIDGE,
