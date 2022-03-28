@@ -135,11 +135,13 @@ class FLNativeView: NSObject, FlutterPlatformView, VisxAdViewDelegate {
         _adContainer.frame.size.height = visxAdView.frame.size.height
         _adContainer.addSubview(visxAdView)
     }
-
-    func visxAdViewDidChangePlacementEffect(visxAdView: VisxAdView, effect: VisxPlacementEffect) {
-        
+    
+    func visxAdViewEffectChange(visxAdView: VisxAdView, effect: VisxPlacementEffect) {
         /// For resizing the adContainer in the Flutter App via eventSink
         flNativeViewFactory.updateAdContainer(width: Double(visxAdView.frame.size.width), height: Double(visxAdView.frame.size.height))
     }
     
+    func visxAdViewSizeChange(visxAdView: VisxAdView, width: CGFloat, height: CGFloat) {
+        flNativeViewFactory.updateAdContainer(width: Double(width), height: Double(height))
+    }
 }
