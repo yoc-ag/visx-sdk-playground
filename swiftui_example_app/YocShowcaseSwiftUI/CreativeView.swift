@@ -13,7 +13,7 @@ struct CreativeView: View {
     @State private var bannerSize = CGSize.zero
     var dummyItems = DummyImages.dummyImagesList
     var navTitle: String
-    
+
     var body: some View {
         TabView {
             ScrollView {
@@ -36,16 +36,15 @@ struct CreativeView: View {
                     }
                 }
             }
+            .background(
+                GeometryReader { proxy in
+                    Color.clear.onAppear {
+                        print(proxy.frame(in: .global))
+                    }
+                }
+            )
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(navTitle)
-        .onDisappear {
-        }
-    }
-}
-
-struct CreativeView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreativeView(navTitle: "")
     }
 }
