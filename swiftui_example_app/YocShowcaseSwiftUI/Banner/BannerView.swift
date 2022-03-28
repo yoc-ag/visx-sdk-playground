@@ -15,12 +15,14 @@ struct BannerView: UIViewRepresentable {
     @Binding var bannerSize: CGSize
 
     func makeUIView(context: Context) -> VisxAdView {
-        let myView = VisxAdView(adUnit: "912268", appDomain: "yoc.com", adViewDelegate: context.coordinator, adSize: .kUnderstitial300x250, universal: true)
+        let myView = VisxAdView(adUnit: "910967", appDomain: "yoc.com", adViewDelegate: context.coordinator, adSize: .kUnderstitial300x250, universal: true)
         myView.load()
         return myView
     }
 
-    func updateUIView(_ uiView: VisxAdView, context: Context) { }
+    func updateUIView(_ uiView: VisxAdView, context: Context) {
+        bannerSize = uiView.frame.size
+    }
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -37,14 +39,15 @@ extension BannerView {
         }
 
         func viewControllerForPresentingVisxAdView() -> UIViewController {
-            (UIApplication.shared.windows.first?.rootViewController)!
+            UIViewController()
         }
 
         func visxAdViewDidInitialize(visxAdView: VisxAdView, effect: VisxPlacementEffect) {
+            visxAdView.setAnchorFrame(with: 0, 94, 375, 635)
             self.parent.bannerSize = visxAdView.frame.size
         }
 
-        func visxAdViewDidChangePlacementDimension(visxAdView: VisxAdView) {
+        func visxAdViewSizeChange(visxAdView: VisxAdView, width: CGFloat, height: CGFloat) {
             self.parent.bannerSize = visxAdView.frame.size
         }
     }

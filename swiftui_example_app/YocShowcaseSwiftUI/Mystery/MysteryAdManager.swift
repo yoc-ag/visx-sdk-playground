@@ -15,6 +15,7 @@ class MysteryAdManager: NSObject, ObservableObject, VisxAdViewDelegate {
 
     private lazy var mysteryAdView: VisxAdView = {
         let adView = VisxAdView(adUnit: "912263", appDomain: "yoc.com", adViewDelegate: self, adSize: .kInterstitial1x1, universal: true)
+        adView.setInterstitialBackgroundColor(color: .black)
         return adView
     }()
 
@@ -31,15 +32,5 @@ class MysteryAdManager: NSObject, ObservableObject, VisxAdViewDelegate {
     func visxAdViewDidInitialize(visxAdView: VisxAdView, effect: VisxPlacementEffect) {
         mysteryAdView.showInterstitial()
         objectWillChange.send()
-        print("Print: visxAdViewDidInitialize")
-    }
-
-    func visxAdViewdidFailWithError(visxAdView: VisxAdView, error: NSError) {
-        print("Print: didFailWithError")
-    }
-
-    func visxAdDidPresentScreen(visxAdView: VisxAdView) {
-        objectWillChange.send()
-        print("Print: visxAdDidPresentScreen")
     }
 }
