@@ -77,6 +77,7 @@ import VisxSDK
     /// Display VIS.X Mystery (Interstitial) Ad
     func visxAdViewDidInitialize(visxAdView: VisxAdView, effect: VisxPlacementEffect) {
         adView!.showInterstitial()
+        print("version \(adView?.getSdkVersion())")
     }
     
     /// Top controller in view hierarchy needed for displaying VIS.X Mystery (Interstitial) Ad

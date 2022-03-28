@@ -4,14 +4,11 @@ import android.content.Context
 import android.util.Log
 import android.view.View
 import android.widget.RelativeLayout
-import com.yoc.demo_showcase_flutter.Constants.ACTION_TRACKER
-import com.yoc.demo_showcase_flutter.Constants.AD_ACTION_TRACKER
 import com.yoc.demo_showcase_flutter.Constants.DOMAIN
 import com.yoc.visx.sdk.VisxAdManager
-import com.yoc.visx.sdk.mraid.EnhancedMraidProperties
-import com.yoc.visx.sdk.util.AdSize
-import com.yoc.visx.sdk.view.category.ActionTracker
-import com.yoc.visx.sdk.view.category.AdActionTracker
+import com.yoc.visx.sdk.adview.tracker.VisxCallbacks
+import com.yoc.visx.sdk.mraid.properties.EnhancedMraidProperties
+import com.yoc.visx.sdk.util.ad.AdSize
 import io.flutter.plugin.platform.PlatformView
 
 internal class FlutterVisxBannerView(
@@ -48,81 +45,76 @@ internal class FlutterVisxBannerView(
             .appDomain(DOMAIN)
             .context(context)
             .isFixedSize(true)
-            .callback(object : ActionTracker {
+            .callback(object : VisxCallbacks() {
                 override fun onAdRequestStarted(visxAdManager: VisxAdManager?) {
-                    Log.d(TAG, "$ACTION_TRACKER onAdRequestStarted")
+                    Log.d(TAG, "onAdRequestStarted")
                 }
 
                 override fun onAdResponseReceived(visxAdManager: VisxAdManager?, s: String?) {
-                    Log.d(TAG, "$ACTION_TRACKER onAdResponseReceived: $s")
+                    Log.d(TAG, "onAdResponseReceived: $s")
                 }
 
                 override fun onAdLoadingStarted(visxAdManager: VisxAdManager?) {
-                    Log.d(TAG, "$ACTION_TRACKER onAdLoadingStarted")
+                    Log.d(TAG, "onAdLoadingStarted")
                 }
 
                 override fun onAdLoadingFinished(visxAdManager: VisxAdManager?, s: String?) {
-                    Log.d(TAG, "$ACTION_TRACKER onAdLoadingFinished: $s")
+                    Log.d(TAG, "onAdLoadingFinished: $s")
                     displayAd()
                 }
 
-                override fun onAdLoadingFailed(
-                    visxAdManager: VisxAdManager?,
-                    s: String?,
-                    p2: Boolean
-                ) {
-                    Log.d(TAG, "$ACTION_TRACKER onAdLoadingFailed reason: $s")
+                override fun onAdLoadingFailed(message: String?, errorCode: Int, isFinal: Boolean) {
+                    Log.d(TAG, "onAdLoadingFailed message: $message errorCode: $errorCode")
                 }
 
                 override fun onAdSizeChanged(width: Int, height: Int) {
                     Log.d(
-                        TAG, ACTION_TRACKER + " onAdSizeChanged width: " + width
+                        TAG, TAG + " onAdSizeChanged width: " + width
                                 + " height: " + height
                     )
                 }
 
                 override fun onAdClicked() {
-                    Log.d(TAG, "$ACTION_TRACKER onAdClicked")
+                    Log.d(TAG, "onAdClicked")
                 }
 
                 override fun onAdLeftApplication() {
-                    Log.d(TAG, "$ACTION_TRACKER onAdLeftApplication")
+                    Log.d(TAG, "onAdLeftApplication")
+                }
+
+                override fun onInterstitialWillBeClosed() {
+                    Log.d(TAG, "onInterstitialWillBeClosed")
+                }
+
+                override fun onInterstitialClosed() {
+                    Log.d(TAG, "onInterstitialClosed")
+                }
+
+                override fun onLandingPageOpened(b: Boolean) {
+                    Log.d(TAG, "onLandingPageOpened: $b")
+                }
+
+                override fun onLandingPageClosed() {
+                    Log.d(TAG, "onLandingPageClosed")
+                }
+
+                override fun onAdResized(
+                        p0: Int,
+                        p1: Int,
+                        p2: Int,
+                        p3: Int,
+                        p4: EnhancedMraidProperties.CloseButtonPosition?
+                ) {
+                    Log.d(TAG, "onAdResized")
+                }
+
+                override fun onResizedAdClosed() {
+                    Log.d(TAG, "onResizedAdClosed")
                 }
 
             })
             .build()
 
-        visxAdManagerBanner.setAdActionTracker(object : AdActionTracker {
-            override fun onInterstitialWillBeClosed() {
-                Log.d(TAG, "$AD_ACTION_TRACKER onInterstitialWillBeClosed")
-            }
-
-            override fun onInterstitialClosed() {
-                Log.d(TAG, "$AD_ACTION_TRACKER onInterstitialClosed")
-            }
-
-            override fun onLandingPageOpened(b: Boolean) {
-                Log.d(TAG, "$AD_ACTION_TRACKER onLandingPageOpened: $b")
-            }
-
-            override fun onLandingPageClosed() {
-                Log.d(TAG, "$AD_ACTION_TRACKER onLandingPageClosed")
-            }
-
-            override fun onAdResized(
-                p0: Int,
-                p1: Int,
-                p2: Int,
-                p3: Int,
-                p4: EnhancedMraidProperties.CloseButtonPosition?
-            ) {
-                Log.d(TAG, "$AD_ACTION_TRACKER onAdResized")
-            }
-
-            override fun onResizedAdClosed() {
-                Log.d(TAG, "$AD_ACTION_TRACKER onResizedAdClosed")
-            }
-        })
     }
 
     private fun displayAd() {

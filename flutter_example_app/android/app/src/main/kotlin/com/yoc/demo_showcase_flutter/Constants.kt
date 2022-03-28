@@ -9,7 +9,5 @@ object Constants {
     const val UNIVERSAL = "universal"
     const val MAX_SIZE_HEIGHT = "max_size_height"
     const val DOMAIN = "yoc.com"
-    const val ACTION_TRACKER = "ActionTracker"
-    const val AD_ACTION_TRACKER = "AdActionTracker"
-
+    const val SITE_ID = "site.id.example"
 }

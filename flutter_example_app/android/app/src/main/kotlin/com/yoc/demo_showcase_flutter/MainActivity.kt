@@ -1,7 +1,10 @@
 package com.yoc.demo_showcase_flutter
 
+import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import com.yoc.demo_showcase_flutter.Constants.ANDROID_BRIDGE
+import com.yoc.visx.sdk.VisxSDK
 import com.yoc.visx.sdk.adview.VisxAd
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -56,6 +59,7 @@ class MainActivity : FlutterActivity(), EventChannel.StreamHandler {
      */
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        VisxSDK.initialize(applicationContext, Constants.SITE_ID)
         setEventChannel(flutterEngine)
         setMethodChannel(flutterEngine)
         setFlutterNativeView(flutterEngine)
