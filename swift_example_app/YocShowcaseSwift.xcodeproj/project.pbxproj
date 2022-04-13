@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9DC5B2D127FED07600CE88FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5B2D027FED07600CE88FD /* AppDelegate.swift */; };
+		9DC5B2D327FED07600CE88FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5B2D227FED07600CE88FD /* SceneDelegate.swift */; };
+		9DC5B2D527FED07600CE88FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5B2D427FED07600CE88FD /* HomeViewController.swift */; };
+		9DC5B2D827FED07600CE88FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC5B2D627FED07600CE88FD /* Main.storyboard */; };
+		9DC5B2DA27FED07700CE88FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC5B2D927FED07700CE88FD /* Assets.xcassets */; };
+		9DC5B2DD27FED07700CE88FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC5B2DB27FED07700CE88FD /* LaunchScreen.storyboard */; };
+		9DC5B2EE27FEFEB800CE88FD /* UniversalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5B2ED27FEFEB800CE88FD /* UniversalTableViewController.swift */; };
+		9DC5B2F127FF1D8D00CE88FD /* UniversalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5B2F027FF1D8D00CE88FD /* UniversalScrollViewController.swift */; };
+		9DC5B2F427FF270000CE88FD /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5B2F327FF270000CE88FD /* InterstitialViewController.swift */; };
+		DFBD79D3E12CF157B2FFA2A3 /* Pods_YocShowcaseSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A66100069C49E30B38FBD9F /* Pods_YocShowcaseSwift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7A66100069C49E30B38FBD9F /* Pods_YocShowcaseSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YocShowcaseSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC5B2CD27FED07600CE88FD /* YocShowcaseSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YocShowcaseSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC5B2D027FED07600CE88FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9DC5B2D227FED07600CE88FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9DC5B2D427FED07600CE88FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9DC5B2D727FED07600CE88FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9DC5B2D927FED07700CE88FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DC5B2DC27FED07700CE88FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9DC5B2DE27FED07700CE88FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DC5B2ED27FEFEB800CE88FD /* UniversalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalTableViewController.swift; sourceTree = "<group>"; };
+		9DC5B2F027FF1D8D00CE88FD /* UniversalScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalScrollViewController.swift; sourceTree = "<group>"; };
+		9DC5B2F327FF270000CE88FD /* InterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
+		B960BB3977A221C62A250A21 /* Pods-YocShowcaseSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YocShowcaseSwift.release.xcconfig"; path = "Target Support Files/Pods-YocShowcaseSwift/Pods-YocShowcaseSwift.release.xcconfig"; sourceTree = "<group>"; };
+		FDEB1CE03E287391E99E2B7E /* Pods-YocShowcaseSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YocShowcaseSwift.debug.xcconfig"; path = "Target Support Files/Pods-YocShowcaseSwift/Pods-YocShowcaseSwift.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DC5B2CA27FED07600CE88FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFBD79D3E12CF157B2FFA2A3 /* Pods_YocShowcaseSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4DFA0A9412397ECE93A88E47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A66100069C49E30B38FBD9F /* Pods_YocShowcaseSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DC5B2C427FED07600CE88FD = {
+			isa = PBXGroup;
+			children = (
+				9DC5B2CF27FED07600CE88FD /* YocShowcaseSwift */,
+				9DC5B2CE27FED07600CE88FD /* Products */,
+				D4AF7E7B91FD7A86514DD54E /* Pods */,
+				4DFA0A9412397ECE93A88E47 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9DC5B2CE27FED07600CE88FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DC5B2CD27FED07600CE88FD /* YocShowcaseSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DC5B2CF27FED07600CE88FD /* YocShowcaseSwift */ = {
+			isa = PBXGroup;
+			children = (
+				9DC5B2F227FF26ED00CE88FD /* Interstitial */,
+				9DC5B2E827FEFD5B00CE88FD /* Universal */,
+				9DC5B2E527FEE38D00CE88FD /* HomeViewController */,
+				9DC5B2D027FED07600CE88FD /* AppDelegate.swift */,
+				9DC5B2D227FED07600CE88FD /* SceneDelegate.swift */,
+				9DC5B2D927FED07700CE88FD /* Assets.xcassets */,
+				9DC5B2D627FED07600CE88FD /* Main.storyboard */,
+				9DC5B2DB27FED07700CE88FD /* LaunchScreen.storyboard */,
+				9DC5B2DE27FED07700CE88FD /* Info.plist */,
+			);
+			path = YocShowcaseSwift;
+			sourceTree = "<group>";
+		};
+		9DC5B2E527FEE38D00CE88FD /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9DC5B2D427FED07600CE88FD /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		9DC5B2E827FEFD5B00CE88FD /* Universal */ = {
+			isa = PBXGroup;
+			children = (
+				9DC5B2ED27FEFEB800CE88FD /* UniversalTableViewController.swift */,
+				9DC5B2F027FF1D8D00CE88FD /* UniversalScrollViewController.swift */,
+			);
+			path = Universal;
+			sourceTree = "<group>";
+		};
+		9DC5B2F227FF26ED00CE88FD /* Interstitial */ = {
+			isa = PBXGroup;
+			children = (
+				9DC5B2F327FF270000CE88FD /* InterstitialViewController.swift */,
+			);
+			path = Interstitial;
+			sourceTree = "<group>";
+		};
+		D4AF7E7B91FD7A86514DD54E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDEB1CE03E287391E99E2B7E /* Pods-YocShowcaseSwift.debug.xcconfig */,
+				B960BB3977A221C62A250A21 /* Pods-YocShowcaseSwift.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DC5B2CC27FED07600CE88FD /* YocShowcaseSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DC5B2E127FED07700CE88FD /* Build configuration list for PBXNativeTarget "YocShowcaseSwift" */;
+			buildPhases = (
+				5D0B9D0889D51EDBBCB63387 /* [CP] Check Pods Manifest.lock */,
+				9DC5B2C927FED07600CE88FD /* Sources */,
+				9DC5B2CA27FED07600CE88FD /* Frameworks */,
+				9DC5B2CB27FED07600CE88FD /* Resources */,
+				02106BF4310A27CF4BE9F5CE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YocShowcaseSwift;
+			productName = YocShowcaseSwift;
+			productReference = 9DC5B2CD27FED07600CE88FD /* YocShowcaseSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DC5B2C527FED07600CE88FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					9DC5B2CC27FED07600CE88FD = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 9DC5B2C827FED07600CE88FD /* Build configuration list for PBXProject "YocShowcaseSwift" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DC5B2C427FED07600CE88FD;
+			productRefGroup = 9DC5B2CE27FED07600CE88FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DC5B2CC27FED07600CE88FD /* YocShowcaseSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DC5B2CB27FED07600CE88FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC5B2DD27FED07700CE88FD /* LaunchScreen.storyboard in Resources */,
+				9DC5B2DA27FED07700CE88FD /* Assets.xcassets in Resources */,
+				9DC5B2D827FED07600CE88FD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02106BF4310A27CF4BE9F5CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YocShowcaseSwift/Pods-YocShowcaseSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YocShowcaseSwift/Pods-YocShowcaseSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YocShowcaseSwift/Pods-YocShowcaseSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D0B9D0889D51EDBBCB63387 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YocShowcaseSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DC5B2C927FED07600CE88FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC5B2F127FF1D8D00CE88FD /* UniversalScrollViewController.swift in Sources */,
+				9DC5B2D527FED07600CE88FD /* HomeViewController.swift in Sources */,
+				9DC5B2F427FF270000CE88FD /* InterstitialViewController.swift in Sources */,
+				9DC5B2D127FED07600CE88FD /* AppDelegate.swift in Sources */,
+				9DC5B2D327FED07600CE88FD /* SceneDelegate.swift in Sources */,
+				9DC5B2EE27FEFEB800CE88FD /* UniversalTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9DC5B2D627FED07600CE88FD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DC5B2D727FED07600CE88FD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9DC5B2DB27FED07700CE88FD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DC5B2DC27FED07700CE88FD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9DC5B2DF27FED07700CE88FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9DC5B2E027FED07700CE88FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DC5B2E227FED07700CE88FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDEB1CE03E287391E99E2B7E /* Pods-YocShowcaseSwift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = STS72389M7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YocShowcaseSwift/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sm.YocShowcaseSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DC5B2E327FED07700CE88FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B960BB3977A221C62A250A21 /* Pods-YocShowcaseSwift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = STS72389M7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YocShowcaseSwift/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sm.YocShowcaseSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DC5B2C827FED07600CE88FD /* Build configuration list for PBXProject "YocShowcaseSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC5B2DF27FED07700CE88FD /* Debug */,
+				9DC5B2E027FED07700CE88FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DC5B2E127FED07700CE88FD /* Build configuration list for PBXNativeTarget "YocShowcaseSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC5B2E227FED07700CE88FD /* Debug */,
+				9DC5B2E327FED07700CE88FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DC5B2C527FED07600CE88FD /* Project object */;
+}
