@@ -125,7 +125,7 @@ class MainActivity : FlutterActivity(), EventChannel.StreamHandler {
      * Setting and displaying Interstitial Creative
      */
     private fun displayInterstitial() {
-        VisxAd(this).displayInterstitial(YOC_INTERSTITIAL_VIS_X_AD_UNIT_ID, APP_DOMAIN)
+        VisxAd(this).displayInterstitial(YOC_INTERSTITIAL_VIS_X_AD_UNIT_ID)
     }
 
     /**
@@ -137,7 +137,7 @@ class MainActivity : FlutterActivity(), EventChannel.StreamHandler {
      * This y value is mandatory for VIS.X Universal Ad (Understitial effect)
      */
     private fun setY(call: MethodCall) {
-        this.y = call.argument<String>("y")!!
+        this.y = call.argument<String>("y") ?: "0.0"
     }
 
     /**

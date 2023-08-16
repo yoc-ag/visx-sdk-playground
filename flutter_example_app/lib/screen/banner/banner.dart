@@ -27,15 +27,14 @@ class BannerState extends State<Banner> {
       // Android-specific code
       return PlatformViewLink(
         viewType: Constants.ANDROID_BRIDGE,
-        surfaceFactory:
-            (BuildContext context, PlatformViewController controller) {
+        surfaceFactory:(context, controller) {
           return AndroidViewSurface(
-            controller: controller,
+            controller: controller as AndroidViewController,
             gestureRecognizers: const <Factory<OneSequenceGestureRecognizer>>{},
             hitTestBehavior: PlatformViewHitTestBehavior.opaque,
           );
         },
-        onCreatePlatformView: (PlatformViewCreationParams params) {
+        onCreatePlatformView: (params) {
           return PlatformViewsService.initSurfaceAndroidView(
             id: params.id,
             viewType: Constants.ANDROID_BRIDGE,

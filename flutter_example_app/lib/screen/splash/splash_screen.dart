@@ -6,8 +6,7 @@ import 'package:flutter/scheduler.dart';
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SchedulerBinding.instance
-        ?.addPostFrameCallback((_) => startHomeScreen(context));
+    SchedulerBinding.instance.addPostFrameCallback((_) => startHomeScreen(context));
 
     return Scaffold(
       backgroundColor: AppColors.colorPrimaryDark,
