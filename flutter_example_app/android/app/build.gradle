@@ -49,6 +49,11 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 flutter {
@@ -58,7 +63,7 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    //implementation 'com.yoc.visx.sdk:visx-sdk:1.6.1@aar'
+    implementation 'com.yoc.visx.sdk:visx-sdk:4.1.0@aar'
 
     implementation 'com.google.android.gms:play-services-ads:20.5.0'
     implementation 'com.google.android.gms:play-services-base:18.0.1'

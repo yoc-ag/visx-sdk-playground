@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 /// Custom Widget for gathering size of wrapped Widget
 class SizeProviderWidget extends StatefulWidget {
   final Widget child;
-  final Function(Size) onChildSize;
+  final Function(Size?) onChildSize;
 
   const SizeProviderWidget(
-      {Key key, this.onChildSize, this.child})
+      {Key? key, required this.onChildSize, required this.child})
       : super(key: key);
   @override
   _SizeProviderWidgetState createState() => _SizeProviderWidgetState();
@@ -22,7 +22,7 @@ class _SizeProviderWidgetState extends State<SizeProviderWidget> {
   }
 
   void _onResize() {
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (context.size is Size) {
         widget.onChildSize(context.size);
       }

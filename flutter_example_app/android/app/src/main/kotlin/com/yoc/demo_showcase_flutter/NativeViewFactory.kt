@@ -1,6 +1,7 @@
 package com.yoc.demo_showcase_flutter
 
 import android.content.Context
+import android.content.MutableContextWrapper
 import com.yoc.demo_showcase_flutter.Constants.AD_TYPE_KEY
 import com.yoc.demo_showcase_flutter.Constants.AD_UNIT_ID
 import com.yoc.demo_showcase_flutter.Constants.BANNER
@@ -44,9 +45,9 @@ class NativeViewFactory(private var mainActivity: MainActivity) :
          * Return VisxAd View based on adType
          */
         return if ((adType == UNIVERSAL)) {
-            FlutterVisxUniversalView(context, mainActivity, maxSizeHeight, adUnitId)
+            VisxUniversalView((context as MutableContextWrapper).baseContext, mainActivity, maxSizeHeight, adUnitId)
         } else {
-            FlutterVisxBannerView(context, adUnitId)
+            VisxBannerView((context as MutableContextWrapper).baseContext, adUnitId)
         }
     }
 

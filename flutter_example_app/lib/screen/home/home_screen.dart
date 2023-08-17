@@ -79,21 +79,6 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    fixedSize: MaterialStateProperty.all<Size>(
-                        Size(300, double.minPositive)),
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        AppColors.colorPrimaryLight),
-                  ),
-                  child: Text(Strings.mysteryScrollerShowcase),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Routes.mysteryScroller);
-                  },
-                ),
-              ),
             ],
           ),
         ),

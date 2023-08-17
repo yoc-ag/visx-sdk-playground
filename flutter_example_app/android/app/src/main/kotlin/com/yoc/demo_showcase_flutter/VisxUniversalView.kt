@@ -3,31 +3,17 @@ package com.yoc.demo_showcase_flutter
 import android.app.Activity
 import android.content.Context
 import android.util.Log
+import android.util.Size
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import com.yoc.demo_showcase_flutter.Constants.DOMAIN
 import com.yoc.visx.sdk.VisxAdManager
 import com.yoc.visx.sdk.adview.tracker.VisxCallbacks
-import com.yoc.visx.sdk.mraid.properties.EnhancedMraidProperties
-import com.yoc.visx.sdk.util.ad.AdSize
 import io.flutter.plugin.platform.PlatformView
 
-/**
- * Setting up VIS.X Universal AD
- *
- * Extends PlatformView for returning VisxAd View to Flutter platform
- * Extends RelativeLayout (Native VisxAd View Container layout)
- *
- * @param context       - for creating VisxAd
- * @param mainActivity  - for communicating with Flutter platform
- * @param maxSizeHeight - height of the maximum available screen height for displaying ad,
- *                        received from Flutter platform
- */
-class FlutterVisxUniversalView(
-    context: Context, private val mainActivity: MainActivity, private val maxSizeHeight: Int,
-    private val adUnitId: String
-) : PlatformView, RelativeLayout(context) {
+class VisxUniversalView(context: Context, private val  mainActivity: MainActivity, private val maxSizeHeight: Int, private val adUnitId: String) :
+    PlatformView, RelativeLayout(context)  {
+
 
     companion object {
         const val TAG = "VisxModule.Universal"
@@ -71,31 +57,24 @@ class FlutterVisxUniversalView(
     private fun initVisxAdView() {
         visxAdManagerUniversal = VisxAdManager.Builder()
             .visxAdUnitID(adUnitId)
-            .adSize(AdSize.MEDIUM_RECTANGLE_300x250)
-            .appDomain(DOMAIN)
+            .adSize(Size(300, 250))
             .context(context)
             .callback(object : VisxCallbacks() {
-                override fun onAdRequestStarted(visxAdManager: VisxAdManager?) {
-                    Log.d(TAG, "onAdRequestStarted")
+                override fun onAdResponseReceived(visxAdManager: VisxAdManager, price: Double, currency: String) {
+                    Log.d(VisxUniversalView.TAG, "onAdResponseReceived: price:$price currency:$currency")
                 }
 
-                override fun onAdResponseReceived(visxAdManager: VisxAdManager?, s: String?) {
-                    Log.d(TAG, "onAdResponseReceived: $s")
-                    displayAd()
-                }
-
-                override fun onAdLoadingStarted(visxAdManager: VisxAdManager?) {
+                override fun onAdLoadingStarted(visxAdManager: VisxAdManager) {
                     Log.d(TAG, "onAdLoadingStarted")
                 }
 
-                override fun onAdLoadingFinished(visxAdManager: VisxAdManager?, s: String?) {
-                    Log.d(TAG, "onAdLoadingFinished: $s")
+                override fun onAdLoadingFinished(visxAdManager: VisxAdManager, message: String) {
+                    Log.d(TAG, "onAdLoadingFinished: $message")
                     displayAd()
                     registerListener()
                 }
 
-                override fun onAdLoadingFailed(message: String?, errorCode: Int, isFinal: Boolean) {
-
+                override fun onAdLoadingFailed(message: String, errorCode: Int, isFinal: Boolean) {
                     Log.d(TAG, "onAdLoadingFailed message: $message errorCode: $errorCode")
 
                     /**
@@ -140,20 +119,6 @@ class FlutterVisxUniversalView(
                     Log.d(TAG, " onLandingPageClosed")
                 }
 
-                override fun onAdResized(
-                        p0: Int,
-                        p1: Int,
-                        p2: Int,
-                        p3: Int,
-                        p4: EnhancedMraidProperties.CloseButtonPosition?
-                ) {
-                    Log.d(TAG, " onAdResized")
-                }
-
-                override fun onResizedAdClosed() {
-                    Log.d(TAG, " onResizedAdClosed")
-                }
-
                 override fun onAdClosed() {
                     Log.d(TAG, " onAdClosed")
                 }
@@ -166,7 +131,7 @@ class FlutterVisxUniversalView(
                     Log.d(TAG, " onAdViewable")
                 }
 
-                override fun onEffectChange(effect: String?) {
+                override fun onEffectChange(effect: String) {
                     Log.d(TAG, " onEffectChange effect: $effect")
                 }
 
@@ -187,7 +152,7 @@ class FlutterVisxUniversalView(
      * Called when ad is ready to be displayed
      */
     private fun displayAd() {
-        Log.i(TAG, "SDK Version: " + visxAdManagerUniversal.sdKVersion)
+        Log.i(TAG, "Displaying ad")
         (context as Activity).runOnUiThread {
 
             /**
@@ -229,4 +194,5 @@ class FlutterVisxUniversalView(
             visxAdManagerUniversal.setViewValues(this.y)
         }
     }
+
 }

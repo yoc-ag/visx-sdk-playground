@@ -25,13 +25,13 @@ EventChannelData _listOfValues(List<double> data) {
   return EventChannelData(data[0], data[1]);
 }
 
-Stream<EventChannelData> _adSizeChangeEvent;
+Stream<EventChannelData>? adSizeChangeEvent;
 
 /// Return adSize values as Stream
-Stream<EventChannelData> get eventData {
-  if (_adSizeChangeEvent == null) {
-    _adSizeChangeEvent =
+Stream<EventChannelData>? get eventData {
+  if (adSizeChangeEvent == null) {
+    adSizeChangeEvent =
         CHANNEL.receiveBroadcastStream().map((event) => _listOfValues(event.cast<double>()));
   }
-  return _adSizeChangeEvent;
+  return adSizeChangeEvent;
 }
